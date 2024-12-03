@@ -1,0 +1,16 @@
+<div class="container">
+<div class="head">
+<h1> welcome everyone to our game </h1>
+<button class="button" (click)="onResetGame()" >Reset Game</button>
+<h3 class="a">Current Player:{{currentPlayer?"X":"O"}}  </h3>
+<h2 *ngIf="gameEnd"> The Winner Is : {{winner}} </h2>
+</div>
+<div class="board ">
+    <div *ngFor="let row of letters; let rowIndex = index">
+        <div class="center" *ngFor="let cell of row; let colIndex = index">
+          <div class="case center "  (click)="onChangeCurrentPlayer(rowIndex,colIndex) " [ngClass]="{'x-player': cell === 'X', 'o-player': cell === 'O'}">{{cell}}</div>
+        </div>
+      </div>
+      
+</div>
+</div>
